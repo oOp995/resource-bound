@@ -1,0 +1,11 @@
+[package]
+name = "resource-bound-core"
+version = "0.1.0"
+edition = "2024"
+description = "Compile-time enforcement of struct size limits and heap allocation constraints"
+readme = "README.md"
+license = "MIT"
+
+authors = ["Ossama Abboud <ossama.abboud95@gmail.com>"]
+
+[dependencies]

@@ -1,0 +1,19 @@
+[package]
+name = "resource-bound-derive"
+version = "0.1.2"
+edition = "2024"
+description = "Compile-time enforcement of struct size limits and heap allocation constraints"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/ossamaabboud/resource-bound"
+documentation = "https://docs.rs/resource-bound"
+homepage = "https://github.com/oOp995/resource-bound"
+
+[lib]
+proc-macro=true
+
+[dependencies]
+syn = { version = "2", features = ["full", "extra-traits"] }
+quote = "1"
+proc-macro2 = "1.0.105"
+resource-bound-core="0.1.2"

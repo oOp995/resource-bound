@@ -1,0 +1,1 @@
+C:\Users\oOp\OneDrive\Desktop\Rust\Rwprojects\resource-project\resource-bound\target\debug\libresource_bound.rlib: C:\Users\oOp\OneDrive\Desktop\Rust\Rwprojects\resource-project\resource-bound\target\package\resource-bound-0.1.2\src\lib.rs
