@@ -1,0 +1,8 @@
+[package]
+name = "test_only"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+resource-bound={path="../resource-bound"}
+resource-bound-derive={path="../resource-bound-derive"}

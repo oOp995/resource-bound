@@ -1,0 +1,8 @@
+[workspace]
+members=[
+    "resource-bound",
+    "resource-bound-core",
+    "resource-bound-derive", "test_only",
+]
+
+resolver="3"

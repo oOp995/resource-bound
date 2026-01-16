@@ -89,8 +89,9 @@ fn expand_resource(input: &DeriveInput) -> syn::Result<TokenStream> {
             
         }
     };
-    let expanded_limit=quote! {
     
+    let expanded_limit=quote! {
+        
         #heap_assert_code
         impl<#(#lifetimes)*> #name <#(#liftimes_use)*> {
             #[doc(hidden)]

@@ -1,5 +1,4 @@
-//!
-//! 
+ 
 //!Enforces compile-time resource constraints on structs.
 //! See the crate README for details and examples.
 //!
