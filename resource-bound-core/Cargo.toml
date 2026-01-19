@@ -5,6 +5,7 @@ edition = "2024"
 description = "Compile-time enforcement of struct size limits and heap allocation constraints"
 readme = "README.md"
 license = "MIT"
+repository = "https://github.com/oOp995/resource-bound"
 
 authors = ["Ossama Abboud <ossama.abboud95@gmail.com>"]
 
