@@ -12,7 +12,7 @@ homepage = "https://github.com/oOp995/resource-bound"
 include=[
     "src/**",
     "Cargo.toml",
-    "README.md",
+    "README.md", 
 ]
 
 [lib]
@@ -22,5 +22,5 @@ proc-macro=true
 syn = { version = "2", features = ["full", "extra-traits"] }
 quote = "1"
 proc-macro2 = "1.0.105"
-resource-bound-core="0.1.2" #publishing
+resource-bound-core="0.1.2" #publishing  ##FIXME:in next version
 ##dev only resource-bound-core={path="../resource-bound-core"} 
