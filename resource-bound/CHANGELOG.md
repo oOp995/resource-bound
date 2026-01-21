@@ -1,5 +1,6 @@
 # v 0.1.3 changelog
 * Fixed github repository link.
+
 * Fixed multiple lifetime syntax. 
     
     ```rust
@@ -10,9 +11,10 @@
     #[size_limit=28]
     #[allow_heap=true]
     struct RefStruct<'a,'b,'c>{
-        a:&'a i32,
-        b:&'b i32,
-        c:&'c i32,
+       /*..*/
     }
 
     ```
+
+# Re-Calrified rule `<Borrowing and lifetimes>`:
+ if you are borrowing `&T` then allocating mechanism is unknown even if `T` implements `resource_bound::StackOnly`, so it is  must be featured with  `allow_heap=true`

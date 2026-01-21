@@ -23,62 +23,14 @@ This crate is intentionally **conservative**, **explicit**, and **honest** about
 ## 📜 Changelog
 See the full [CHANGELOG.md](./CHANGELOG.md) for details on all updates and fixes.
 
-## Motivation
-
-In embedded, systems, and performance-critical Rust code, it is often necessary to ensure that certain data structures:
-
-* have a **known and bounded size**
-* do **not allocate on the heap** unless explicitly allowed
-* fail **at compile time**, not at runtime
-
-Rust itself does not provide a built-in way to enforce these constraints declaratively.
-
-`resource-bound` fills this gap by providing a derive macro that performs **static checks** during compilation.
-
 ---
-
-## What this crate guarantees
-
-When you write:
-
-```rust
-#[derive(ResourceBound)]
-#[size_limit = 32]
-struct MyStruct { /* ... */ }
-```
-
-`resource-bound` guarantees at **compile time** that:
-
-* `std::mem::size_of::<MyStruct>() <= 32`
-* all field types are **explicitly approved stack-only types**
-* no heap-allocating types are used **unless explicitly allowed**
-
-All checks are performed **at compile time**. There is **no runtime overhead**.
-
----
-
-## What this crate does NOT guarantee
-
-It is important to be explicit about limitations:
-
-* This crate does **not** detect runtime or indirect heap allocations
-* This crate does **not** perform escape or alias analysis
-* This crate does **not** infer allocation behavior of generic types
-* This crate does **not** track allocator behavior
-
-Heap usage is approximated by **explicit type allow-listing**, not by analysis.
-
-If you need runtime memory tracking or allocator instrumentation, this crate is **not** the right tool.
-
----
-
 ## Usage
 
 Add the dependency:
 
 ```toml
 [dependencies]
-resource-bound = "0.1.2"
+resource-bound = "0.1.3"
 ```
 
 Import the derive macro and StackOnly trait:
@@ -177,6 +129,55 @@ struct HeapStruct<'a>{
 This makes heap usage **visible and intentional**, while still enforcing a maximum struct size.
 
 ---
+## Motivation
+
+In embedded, systems, and performance-critical Rust code, it is often necessary to ensure that certain data structures:
+
+* have a **known and bounded size**
+* do **not allocate on the heap** unless explicitly allowed
+* fail **at compile time**, not at runtime
+
+Rust itself does not provide a built-in way to enforce these constraints declaratively.
+
+`resource-bound` fills this gap by providing a derive macro that performs **static checks** during compilation.
+
+---
+
+## What this crate guarantees
+
+When you write:
+
+```rust
+#[derive(ResourceBound)]
+#[size_limit = 32]
+struct MyStruct { /* ... */ }
+```
+
+`resource-bound` guarantees at **compile time** that:
+
+* `std::mem::size_of::<MyStruct>() <= 32`
+* all field types are **explicitly approved stack-only types**
+* no heap-allocating types are used **unless explicitly allowed**
+
+All checks are performed **at compile time**. There is **no runtime overhead**.
+
+---
+
+## What this crate does NOT guarantee
+
+It is important to be explicit about limitations:
+
+* This crate does **not** detect runtime or indirect heap allocations
+* This crate does **not** perform escape or alias analysis
+* This crate does **not** infer allocation behavior of generic types
+* This crate does **not** track allocator behavior
+
+Heap usage is approximated by **explicit type allow-listing**, not by analysis.
+
+If you need runtime memory tracking or allocator instrumentation, this crate is **not** the right tool.
+
+---
+
 
 ## Default behavior
 
@@ -190,7 +191,7 @@ All violations result in **compile-time errors**.
 
 ---
 
-## Allowed primitive types (v0.1.1)
+## Allowed primitive types (v0.1.3)
 
 By default, the following **primitive scalar types** are considered stack-only and allowed:
 
@@ -217,6 +218,9 @@ struct RefStruct<'a> {
     value: &'a u32,
 }
 ```
+
+* Re-Calrified rule `Borrowing and lifetimes`:
+ if you are borrowing `&T` then allocating mechanism is unknown even if `T` implements `resource_bound::StackOnly`, so it is  must be featured with  `allow_heap=true`
 
 ### Generics
 
@@ -248,7 +252,7 @@ No runtime panics. No silent failures.
 
 `resource-bound` follows a few core principles:
 
-* **Explicit over implicit**
+* **Explicit heap over implicit**
 * **Conservative by default**
 * **Compile-time enforcement**
 * **Zero runtime cost**
@@ -260,7 +264,7 @@ If a property cannot be proven at compile time, it is **not assumed**.
 
 ## Versioning and stability
 
-This crate is intentionally strict in its initial release.
+This crate is intentionally strict in its release v 0.1.3.
 
 Future versions may:
 
