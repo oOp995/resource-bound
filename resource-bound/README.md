@@ -19,6 +19,10 @@ This crate is intentionally **conservative**, **explicit**, and **honest** about
 
 ---
 
+
+## 📜 Changelog
+See the full [CHANGELOG.md](./CHANGELOG.md) for details on all updates and fixes.
+
 ## Motivation
 
 In embedded, systems, and performance-critical Rust code, it is often necessary to ensure that certain data structures:
@@ -27,7 +31,7 @@ In embedded, systems, and performance-critical Rust code, it is often necessary 
 * do **not allocate on the heap** unless explicitly allowed
 * fail **at compile time**, not at runtime
 
-Rust itself does not provide a **built-in** way to enforce these constraints declaratively.
+Rust itself does not provide a built-in way to enforce these constraints declaratively.
 
 `resource-bound` fills this gap by providing a derive macro that performs **static checks** during compilation.
 

@@ -1,6 +1,6 @@
-# resource-bound-core
+# resource-bound-core 0.1.3
 
-`resource-bound-core` is a **part of `rsource-bound` crate** and not designed to work solely,the main usage is in `resource-bound` crate, refer to [resource-bound](https://crates.io/crates/resource-bound)
+`resource-bound-core` is a **part of `resource-bound` crate** and not designed to work solely,the main usage is in `resource-bound` crate, refer to [resource-bound](https://crates.io/crates/resource-bound)
 
 
 
