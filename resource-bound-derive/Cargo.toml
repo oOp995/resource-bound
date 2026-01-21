@@ -16,5 +16,5 @@ proc-macro=true
 syn = { version = "2", features = ["full", "extra-traits"] }
 quote = "1"
 proc-macro2 = "1.0.105"
-#publishing resource-bound-core="0.1.2"
-resource-bound-core={path="../resource-bound-core"} ##dev only 
+resource-bound-core="0.1.2" #publishing
+##dev only resource-bound-core={path="../resource-bound-core"} 
