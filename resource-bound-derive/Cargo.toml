@@ -9,6 +9,12 @@ repository = "https://github.com/oOp995/resource-bound"
 documentation = "https://docs.rs/resource-bound"
 homepage = "https://github.com/oOp995/resource-bound"
 
+include=[
+    "src/**",
+    "Cargo.toml",
+    "README.md",
+]
+
 [lib]
 proc-macro=true
 
