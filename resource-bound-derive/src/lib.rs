@@ -4,8 +4,8 @@ mod outer_attr;
 use std::collections::HashMap;
 
 use proc_macro::{TokenStream};
-use quote::{ToTokens, quote};
-use syn::{DeriveInput, Fields, Lifetime, Type, TypeReference, spanned::Spanned};
+use quote::quote;
+use syn::{DeriveInput, Fields, Type,spanned::Spanned};
 
 use outer_attr::OuterAttributes;
 
@@ -97,7 +97,7 @@ fn expand_resource(input: &DeriveInput) -> syn::Result<TokenStream> {
 
     //Lifetimes
       //lifetimes
-    let mut lifetimes=input.generics.lifetimes();
+    let lifetimes=input.generics.lifetimes();
     let mut lifetimes_names=vec![];
     lifetimes.for_each(|lt|{
         lifetimes_names.push(lt.lifetime.clone());
@@ -107,9 +107,6 @@ fn expand_resource(input: &DeriveInput) -> syn::Result<TokenStream> {
         <#(#lifetimes_names),*>
     };
 
-    let lifetimes_use=quote! {
-        <#(#lifetimes_names),*>
-    };
     //let c=lifetimes_use.to_string();                //dev only
     //let e=syn::Error::new(c.span(), c);          //dev only
     //return Err(e);                               //dev only
