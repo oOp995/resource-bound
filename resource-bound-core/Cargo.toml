@@ -4,7 +4,15 @@ version = "0.1.3"
 edition = "2024"
 description = "Compile-time enforcement of struct size limits and heap allocation constraints"
 readme = "README.md"
-license = "MIT"
+license = "MIT OR Apache-2.0"
+
+include=[
+    "src/**",
+    "Cargo.toml",
+    "README.md",
+    "../LICENSE*",
+    "../README.md"
+]
 
 authors = ["Ossama Abboud <ossama.abboud95@gmail.com>"]
 

@@ -4,7 +4,7 @@ version = "0.1.3"
 edition = "2024"
 description = "Compile-time enforcement of struct size limits and heap allocation constraints"
 readme = "README.md"
-license = "MIT"
+license = "MIT OR Apache-2.0"
 repository = "https://github.com/oOp995/resource-bound"
 documentation = "https://docs.rs/resource-bound"
 homepage = "https://github.com/oOp995/resource-bound"
@@ -12,7 +12,9 @@ homepage = "https://github.com/oOp995/resource-bound"
 include=[
     "src/**",
     "Cargo.toml",
-    "README.md", 
+    "README.md",
+    "../LICENSE*",
+    "../README.md" 
 ]
 
 [lib]

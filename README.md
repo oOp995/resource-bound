@@ -30,7 +30,7 @@ Add the dependency:
 
 ```toml
 [dependencies]
-resource-bound = "0.1.2"
+resource-bound = "0.1.3"
 ```
 
 Import the derive macro and StackOnly trait:
@@ -178,7 +178,6 @@ If you need runtime memory tracking or allocator instrumentation, this crate is 
 
 ---
 
----
 
 ## Default behavior
 
@@ -219,6 +218,9 @@ struct RefStruct<'a> {
     value: &'a u32,
 }
 ```
+
+* Re-Calrified rule `Borrowing and lifetimes`:
+ if you are borrowing `&T` then allocating mechanism is unknown even if `T` implements `resource_bound::StackOnly`, so it is  must be featured with  `allow_heap=true`
 
 ### Generics
 
